@@ -1,31 +1,53 @@
+// let url3 = "https://www.themealdb.com/api/json/v1/1/categories.php"
+// fetch(url3)
+//   .then(function(response) {
+//     return response.json();
+//   }).then(function(json) {
+//     console.log(json)
+//     let categories = "";
+//     console.log(json);
+//
+//     for (let i = 0; i < json.categories.length; i++) {
+//       categories += json.categories[i].strCategory + " ";
+//     }
+//
+//     document.getElementById("possibleCategories").innerHTML = categories;
+//
+//   });
+
+
 document.getElementById("recipeSubmit").addEventListener("click", function(event) {
   event.preventDefault();
   const value = document.getElementById("recipeInput").value;
   if (value === "")
     return;
   console.log(value);
-  const url = "https://www.themealdb.com/api/json/v1/1/search.php?s=" + value;
-  fetch(url)
+  const url1 = "https://www.themealdb.com/api/json/v1/1/search.php?s=" + value;
+  fetch(url1)
     .then(function(response) {
       return response.json();
     }).then(function(json) {
       console.log(json)
       let results = "";
       try {
-        let image = json.meals[0].strMealThumb;
-        results += json.meals[0].strMeal;
 
+        for (let i = 0; i < json.meals.length; i++) {
+          let image = json.meals[i].strMealThumb;
+          results += "<div class=recipe-item><p>" + json.meals[i].strMeal + "</p>";
+          results += '<img class="recipe-image" src="' + image + '" width=50%>';
+          results += "</div>";
+
+        }
         document.getElementById("recipeResults").innerHTML = results;
-        document.getElementById("recipeImage").src = image
-      }
-      catch(err) {
+      } catch (err) {
         document.getElementById("recipeResults").innerHTML = "No Recipe Found";
       }
 
 
-    }).catch(function(){
+    }).catch(function() {
       document.getElementById("recipeResults").innerHTML = "No Recipe Found";
-    }) ;
+      document.getElementById("recipeContainer").src = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
+    });
 
 
 

@@ -1,0 +1,50 @@
+#appTitle {
+  display: flex;
+  justify-content: center;
+}
+
+#searchForm {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding 10px;
+
+
+}
+
+#resultContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  width: 100%;
+
+}
+
+#recipeResults {
+  display: flex;
+  flex-direction: column;
+}
+
+#recipeImage {
+  display: flex;
+  width: 50%;
+}
+
+#recipeSubmit {
+  margin-top: -10px;
+  margin-bottom: 10px;
+}
+
+#randomSubmit {
+  margin-top: -10px;
+}
+
+.recipe-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
