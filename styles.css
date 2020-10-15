@@ -15,17 +15,17 @@
 
 #resultContainer {
   display: flex;
-  align-items: center;
+  /* align-items: center;
   justify-content: center;
   flex-direction: column;
 
-  width: 100%;
+  width: 100%; */
 
 }
 
 #recipeResults {
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
 }
 
 #recipeImage {
