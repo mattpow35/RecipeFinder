@@ -97,7 +97,6 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js" integrity="sha256-4iQZ6BVL4qNKlQ27TExEhBN1HFPvAvAMbFavKKosSWQ=" crossorigin="anonymous"></script>
   <script>
-
     document.getElementById("categorySubmit").addEventListener("click", function(event) {
       event.preventDefault();
       const value = document.getElementById("categories").value;
@@ -106,30 +105,48 @@
         return;
       console.log(value);
       const url1 = "https://www.themealdb.com/api/json/v1/1/filter.php?c=" + value;
+      document.getElementById("categoryRecipeResults").innerHTML = "<h5>Looking for recipes...</h5>"
       fetch(url1)
         .then(function(response) {
           return response.json();
-        }).then(function(json) {
+        }).then(async function(json) {
           console.log(json)
           let results = "";
+          let recipeSource = [];
+          let youtubeSource = [];
 
-          try {
 
             for (let i = 0; i < json.meals.length; i++) {
+
+
+              const urlMeal = "https://www.themealdb.com/api/json/v1/1/lookup.php?i=" + json.meals[i].idMeal;
+
+                await fetch(urlMeal)
+                  .then(function(response) {
+                    return response.json();
+                  }).then(function(json2) {
+                    console.log(json2)
+                    recipeSource.push('<a href="' + json2.meals[0].strSource + '" target=_blank>Recipe</a>');
+                    youtubeSource.push('<a href="' + json2.meals[0].strYoutube + '" target=_blank>Youtube Video</a>');
+
+                  });
+
+
+
+
+
               let image = json.meals[i].strMealThumb;
 
               results += "<div class=recipe-item><h3>" + json.meals[i].strMeal + "</h3>";
-              results += '<a href="' + json.meals[i].strSource + '" target=_blank>Recipe</a>';
-              results += '<a href="' + json.meals[i].strYoutube + '" target=_blank>Youtube Video</a>';
+              results += recipeSource[i];
+              results += youtubeSource[i];
               results += '<img class="recipe-image" src="' + image + '" width=50%>';
               results += "</div>";
 
             }
 
             document.getElementById("categoryRecipeResults").innerHTML = results;
-          } catch (err) {
-            document.getElementById("categoryRecipeResults").innerHTML = "No Recipe Found";
-          }
+
 
 
         });
