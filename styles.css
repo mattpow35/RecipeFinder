@@ -1,3 +1,48 @@
+h1 {
+  text-align: center;
+  color: #F2F3F4;
+}
+
+h3 {
+  border-top: 10px;
+  text-align: center;
+  color: #f0f0f0;
+
+}
+h5 {
+  color: #f0f0f0;
+}
+
+p {
+  color: #f0f0f0
+
+}
+
+label {
+  color: #f0f0f0;
+}
+
+body{
+  background-color: #909090;
+}
+a{
+  color: white;
+  text-decoration: underline;
+}
+
+.jumbotron {
+  background-color: #6B6B6B;
+}
+
+.display-4 {
+  color: white;
+}
+
+.nav-link {
+  text-decoration: none;
+}
+
+
 #appTitle {
   display: flex;
   justify-content: center;
@@ -19,11 +64,41 @@
   justify-content: center;
   flex-direction: column;
 
-  width: 100%;
+  /* width: 100%; */
+
+}
+
+#randomResultContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  /* width: 100%; */
+
+}
+
+#categoryResultContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  /* width: 100%; */
 
 }
 
 #recipeResults {
+  display: flex;
+  flex-direction: column;
+}
+
+#randomRecipeResult {
+  display: flex;
+  flex-direction: column;
+}
+
+#categoryRecipeResults {
   display: flex;
   flex-direction: column;
 }
@@ -39,19 +114,22 @@
 }
 
 #randomSubmit {
-  margin-top: -10px;
+  margin-top: -5px;
+  margin-bottom: 20px;
 }
 
 .recipe-item {
   display: flex;
+  width: auto;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  background-color: #5cdb95;
+  background-color: #6B6B6B;
   border-style: solid;
-  border-color: #379683;
+  border-color: #212121;
 
 }
-.recipeImage {
+.recipe-image {
   padding: 10px;
+
 }

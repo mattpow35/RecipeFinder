@@ -36,9 +36,9 @@ document.getElementById("recipeSubmit").addEventListener("click", function(event
           let image = json.meals[i].strMealThumb;
 
           results += "<div class=recipe-item><h3>" + json.meals[i].strMeal + "</h3>";
-          results += '<a href="' + json.meals[i].strSource + '" target=_blank>Recipe Link</a>';
-          results += '<a href="' + json.meals[i].strYoutube + '" target=_blank>Youtube Vide0</a>';
-          results += '<img class="recipe-image" src="' + image + '" width=75%>';
+          results += '<a href="' + json.meals[i].strSource + '" target=_blank>Recipe</a>';
+          results += '<a href="' + json.meals[i].strYoutube + '" target=_blank>Youtube Video</a>';
+          results += '<img class="recipe-image" src="' + image + '" width=50%>';
           results += "</div>";
 
         }
