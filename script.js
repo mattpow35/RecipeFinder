@@ -29,15 +29,18 @@ document.getElementById("recipeSubmit").addEventListener("click", function(event
     }).then(function(json) {
       console.log(json)
       let results = "";
+      results += '<div> class="row no-gutters">';
       try {
 
         for (let i = 0; i < json.meals.length; i++) {
           let image = json.meals[i].strMealThumb;
+          results += '<div class="col-lg-3">';
           results += "<div class=recipe-item><p>" + json.meals[i].strMeal + "</p>";
           results += '<img class="recipe-image" src="' + image + '" width=50%>';
-          results += "</div>";
+          results += "</div></div>";
 
         }
+        results += '</div>';
         document.getElementById("recipeResults").innerHTML = results;
       } catch (err) {
         document.getElementById("recipeResults").innerHTML = "No Recipe Found";
