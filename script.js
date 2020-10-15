@@ -40,14 +40,14 @@ document.getElementById("recipeSubmit").addEventListener("click", function(event
             results += '<a href="' + json.meals[i].strSource + '" target=_blank>Recipe</a>';
           }
           else {
-            results += "<p>" + json.meals[i].strInstructions + "<p>" ;
+            results += "<p>" + json.meals[i].strInstructions + "</p>" ;
           }
 
           if (json.meals.[i].strYoutube !== "") {
             results += '<a href="' + json.meals[i].strYoutube + '" target=_blank>Youtube Video</a>';
           }
           else {
-            results += "<p>" + json.meals[i].strInstructions + "<p>" ;
+            results += "<p>" + json.meals[i].strInstructions + "</p>" ;
           }
 
           results += '<img class="recipe-image" src="' + image + '" width=50%>';
