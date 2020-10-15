@@ -34,9 +34,9 @@ document.getElementById("recipeSubmit").addEventListener("click", function(event
 
         for (let i = 0; i < json.meals.length; i++) {
           let image = json.meals[i].strMealThumb;
-          results += '<div class="col-lg-3">';
-          results += "<div class=recipe-item><p>" + json.meals[i].strMeal + "</p>";
-          results += '<img class="recipe-image" src="' + image + '" width=50%>';
+          results += '<div class="col-lg">';
+          results += "<div class=recipe-item><h3>" + json.meals[i].strMeal + "</h3>";
+          results += '<img class="recipe-image" src="' + image + '" width=75%>';
           results += "</div></div>";
 
         }
