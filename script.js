@@ -36,7 +36,7 @@ document.getElementById("recipeSubmit").addEventListener("click", function(event
           let image = json.meals[i].strMealThumb;
 
           results += "<div class=recipe-item><h3>" + json.meals[i].strMeal + "</h3>";
-          restuts += '<a href=' + json.meals[i].strSource + '>Recipe Link</a>';
+          restuts += '<a href="' + json.meals[i].strSource + '">Recipe Link</a>';
           results += '<img class="recipe-image" src="' + image + '" width=75%>';
           results += "</div>";
 
