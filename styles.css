@@ -47,4 +47,8 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  background-color: #5cdb95;
+  border-style: solid;
+  border-color: #379683;
+
 }
