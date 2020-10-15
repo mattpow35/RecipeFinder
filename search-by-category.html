@@ -62,7 +62,6 @@
       <option value="Vegan">Vegan</option>
       <option value="Vegetarian">Vegetarian</option>
       <option value="Breakfast">Breakfast</option>
-      <option value="Goat">Goat</option>
     </select>
     <input id="categorySubmit" type="submit" name="categorySubmit" value="Find By Category"></input>
 
@@ -116,36 +115,62 @@
           let youtubeSource = [];
 
 
-            for (let i = 0; i < json.meals.length; i++) {
+          for (let i = 0; i < json.meals.length; i++) {
 
 
-              const urlMeal = "https://www.themealdb.com/api/json/v1/1/lookup.php?i=" + json.meals[i].idMeal;
+            const urlMeal = "https://www.themealdb.com/api/json/v1/1/lookup.php?i=" + json.meals[i].idMeal;
 
-               await fetch(urlMeal)
-                  .then(function(response) {
-                    return response.json();
-                  }).then(function(json2) {
-                    console.log(json2)
+            await fetch(urlMeal)
+              .then(function(response) {
+                return response.json();
+              }).then(function(json2) {
+                console.log(json2)
+                if (json2.meals[0].strSource !== "" && json2.meals[0].strYoutube !== "") {
+                  if (json2.meals[0].strSource !== "") {
                     recipeSource.push('<a href="' + json2.meals[0].strSource + '">Recipe</a>');
+                  } else {
+                    recipeSource.push("")
+                  }
+                  if (json2.meals[0].strYoutube !== "") {
                     youtubeSource.push('<a href="' + json2.meals[0].strYoutube + '">Youtube Video</a>');
-
-                  });
-
-
-
+                  } else {
+                    youtubeSource.push("")
+                  }
 
 
-              let image = json.meals[i].strMealThumb;
+                } else {
+                  recipeSource.push("")
+                  youtubeSource.push("")
+                }
 
+
+              });
+
+
+
+
+
+            let image = json.meals[i].strMealThumb;
+
+
+            if (recipeSource[i] !== "" && youtubeSource[i] !== "") {
               results += "<div class=recipe-item><h3>" + json.meals[i].strMeal + "</h3>";
-              results += recipeSource[i];
-              results += youtubeSource[i];
+              if (recipeSource[i] !== "") {
+                results += recipeSource[i];
+              }
+              if (youtubeSource[i] !== "") {
+                results += youtubeSource[i];
+              }
+
+
               results += '<img class="recipe-image" src="' + image + '" width=50%>';
               results += "</div>";
-
             }
 
-            document.getElementById("categoryRecipeResults").innerHTML = results;
+
+          }
+
+          document.getElementById("categoryRecipeResults").innerHTML = results;
 
 
 
