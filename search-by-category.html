@@ -121,7 +121,7 @@
 
               const urlMeal = "https://www.themealdb.com/api/json/v1/1/lookup.php?i=" + json.meals[i].idMeal;
 
-                await fetch(urlMeal)
+               await fetch(urlMeal)
                   .then(function(response) {
                     return response.json();
                   }).then(function(json2) {
