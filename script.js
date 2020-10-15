@@ -36,14 +36,14 @@ document.getElementById("recipeSubmit").addEventListener("click", function(event
           let image = json.meals[i].strMealThumb;
 
           results += "<div class=recipe-item><h3>" + json.meals[i].strMeal + "</h3>";
-          if (json.meals.[i].strSource !== " ") {
+          if (json.meals.[i].strSource !== "") {
             results += '<a href="' + json.meals[i].strSource + '" target=_blank>Recipe</a>';
           }
           else {
             results += "<p>" + json.meals[i].strInstructions + "<p>" ;
           }
 
-          if (json.meals.[i].strYoutube !== " ") {
+          if (json.meals.[i].strYoutube !== "") {
             results += '<a href="' + json.meals[i].strYoutube + '" target=_blank>Youtube Video</a>';
           }
           else {
