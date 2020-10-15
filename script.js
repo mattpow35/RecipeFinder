@@ -29,7 +29,7 @@ document.getElementById("recipeSubmit").addEventListener("click", function(event
     }).then(function(json) {
       console.log(json)
       let results = "";
-      results += '<div> class="row no-gutters">';
+      results += '<div class="row no-gutters">';
       try {
 
         for (let i = 0; i < json.meals.length; i++) {
