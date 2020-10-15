@@ -1,20 +1,3 @@
-// let url3 = "https://www.themealdb.com/api/json/v1/1/categories.php"
-// fetch(url3)
-//   .then(function(response) {
-//     return response.json();
-//   }).then(function(json) {
-//     console.log(json)
-//     let categories = "";
-//     console.log(json);
-//
-//     for (let i = 0; i < json.categories.length; i++) {
-//       categories += json.categories[i].strCategory + " ";
-//     }
-//
-//     document.getElementById("possibleCategories").innerHTML = categories;
-//
-//   });
-
 
 document.getElementById("recipeSubmit").addEventListener("click", function(event) {
   event.preventDefault();
