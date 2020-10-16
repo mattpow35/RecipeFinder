@@ -99,17 +99,17 @@
     document.getElementById("categorySubmit").addEventListener("click", function(event) {
       event.preventDefault();
       const value = document.getElementById("categories").value;
-      console.log(value);
+
       if (value === "")
         return;
-      console.log(value);
+
       const url1 = "https://www.themealdb.com/api/json/v1/1/filter.php?c=" + value;
       document.getElementById("categoryRecipeResults").innerHTML = "<h5>Looking for recipes...</h5>"
       fetch(url1)
         .then(function(response) {
           return response.json();
         }).then(async function(json) {
-          console.log(json)
+
           let results = "";
           let recipeSource = [];
           let youtubeSource = [];
@@ -124,7 +124,7 @@
               .then(function(response) {
                 return response.json();
               }).then(function(json2) {
-                console.log(json2)
+
                 if (json2.meals[0].strSource !== "" && json2.meals[0].strYoutube !== "") {
                   if (json2.meals[0].strSource !== "") {
                     recipeSource.push('<a href="' + json2.meals[0].strSource + '">Recipe</a>');

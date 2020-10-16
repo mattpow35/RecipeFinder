@@ -4,13 +4,13 @@ document.getElementById("recipeSubmit").addEventListener("click", function(event
   const value = document.getElementById("recipeInput").value;
   if (value === "")
     return;
-  console.log(value);
+
   const url1 = "https://www.themealdb.com/api/json/v1/1/search.php?s=" + value;
   fetch(url1)
     .then(function(response) {
       return response.json();
     }).then(function(json) {
-      console.log(json)
+      
       let results = "";
 
       try {
